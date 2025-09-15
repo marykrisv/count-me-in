@@ -109,10 +109,10 @@ const ShareTable = ({
               <td>-</td>
               {participants.map((participant) => (
                 <td key={participant}>
-                  {
+                  {toDecimal(
                     eachParticipants.find(({ name }) => name === participant)
-                      ?.totalPayment
-                  }
+                      ?.totalPayment ?? 0,
+                  )}
                 </td>
               ))}
             </tr>

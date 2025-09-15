@@ -75,6 +75,10 @@ const AddParticipant = ({
       <input value={name} onChange={(e) => setName(e.target.value)} />
       <button
         onClick={() => {
+          if (name.trim().length === 0) {
+            return;
+          }
+
           onAddParticipant(name.trim());
           setName("");
         }}
