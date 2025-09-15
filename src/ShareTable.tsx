@@ -17,7 +17,6 @@ const ShareTable = ({
         computeOwed({
           dividedCost,
           participants: expense.participants.length,
-          isPayerIncluded: expense.participants.includes(expense.paidBy),
         }),
       ),
       eachParticipants: participants.map((participant) => ({
@@ -163,16 +162,10 @@ function toDecimal(cost: number) {
 function computeOwed({
   dividedCost,
   participants,
-  isPayerIncluded,
 }: {
   dividedCost: number;
   participants: number;
-  isPayerIncluded: boolean;
 }) {
-  if (isPayerIncluded) {
-    return dividedCost * (participants - 1);
-  }
-
   return dividedCost * participants;
 }
 
